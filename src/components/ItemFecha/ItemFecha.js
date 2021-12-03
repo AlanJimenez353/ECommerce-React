@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export const ItemFecha=({fecha}) =>{
 
     return(
@@ -8,6 +9,7 @@ export const ItemFecha=({fecha}) =>{
                     <h3>{fecha.artista}</h3>
                     <p>Lugar: {fecha.lugar}</p>
                     <p>Precio: ${fecha.precio} </p>
+                    <button className="btn btn-dark">Ver mas</button>
         </div>
     )
 }
