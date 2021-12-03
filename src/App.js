@@ -4,7 +4,7 @@ import {NavBar} from './components/NavBar/NavBar'
 import {Clicker} from './components/Clicker/Clicker'
 import {ItemCount} from './components/ItemCount/ItemCount'
 import { ItemListConteiner } from './components/ItemListConteiner/ItemListConteiner';
-import { FechaDetail } from './components/FechaDetail/FechaDetail';
+import {ItemDetailConteiner} from './components/ItemDetailConteiner/ItemDetailConteiner'
 
 function App() {
   return (
@@ -17,6 +17,9 @@ function App() {
       <ItemCount/>*/}
       <ItemListConteiner/>
       <h2>ITEM DETAIL</h2>
+      <hr/>
+      <ItemDetailConteiner/>
+      
     </div>
   );
 }
