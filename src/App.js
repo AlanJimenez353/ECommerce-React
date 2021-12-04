@@ -5,6 +5,7 @@ import {Clicker} from './components/Clicker/Clicker'
 import {ItemCount} from './components/ItemCount/ItemCount'
 import { ItemListConteiner } from './components/ItemListConteiner/ItemListConteiner';
 import {ItemDetailConteiner} from './components/ItemDetailConteiner/ItemDetailConteiner'
+import { HpApi } from './components/HpApi/HpApi';
 
 function App() {
   return (
@@ -16,10 +17,14 @@ function App() {
       <Clicker/>
       <ItemCount/>*/}
       <ItemListConteiner/>
+      <hr/>
       <h2>ITEM DETAIL</h2>
       <hr/>
       <ItemDetailConteiner/>
-      
+      <hr/>
+      <h2>API GET Y CUSTOM HOOK</h2>
+      <hr/>
+      <HpApi/>
     </div>
   );
 }
