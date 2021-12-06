@@ -1,32 +1,28 @@
 import React,{ useEffect, useState } from "react";
 import { Fechas } from "../Data/Fechas"
-///import { FechasList } from "../FechasList/FechasList";
+import { FechasList } from "../FechasList/FechasList";
 import { pedirDatos } from "../utils/pedirDatos";
 import {ItemDetailFecha} from '../ItemDetailFecha/ItemDetailFecha'
-
+import { pedirItem } from "../utils/pedirItem";
+import { useParams } from "react-router";
 
 export const ItemDetailConteiner = () =>{
 
     ///COMIENZO CON LAS FECHAS VACIAS
-const [fechas,setFechas]= useState([])
-const[loading,setLoading]=useState(false)
+const [fecha,setFecha]= useState([])
+const[loading,setLoading]=useState(true)
+const{itemId}=useParams()
 
 //REALIZO RENDERIZACION Y CUANDO ACTUALIZA YA TENGO MIS FECHAS CARGADAS
 useEffect(()=>{
 
     setLoading(true)
-    pedirDatos()
-        .then((resp)=>{
-            setFechas(resp)
-            console.log(resp)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+    pedirItem(Number(itemId))
+        .then(resp =>setFecha(resp))
         .finally(()=>{
-            console.log("Peticion finalizada")
-            setLoading(false)
-        })
+                setLoading(false)
+            })
+        
 },[])
 
 // UNA VEZ CON LAS FECHAS CARGADAS LLAMO A  FUNCION QUE CREA TABLA DE FECHAS
@@ -36,7 +32,7 @@ useEffect(()=>{
             {
                 loading
                 ? <h2>Cargando...</h2>
-                : <ItemDetailFecha Fechas= {Fechas}/>
+                : <ItemDetailFecha Fechas= {fecha}/>
             }
         </div>
     )

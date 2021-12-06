@@ -17,7 +17,7 @@ function App() {
         <Routes>
 
             <Route path="/" element={<ItemListConteiner/>} />
-            <Route path="/detail" element={<ItemDetailConteiner/>}/>
+            <Route path="/detail/:itemId" element={<ItemDetailConteiner/>}/>
             <Route path="/Api" element={<HpApi/>}/>
 
             {/*Sin terminar*/}

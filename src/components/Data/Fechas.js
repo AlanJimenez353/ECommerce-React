@@ -38,5 +38,13 @@ export const Fechas =[
         lugar: "Teatro Colon",
         img: 'https://via.placeholder.com/200',
         category: "Rock"
-    }
+    },
+    {
+        id: 5,
+        artista: "Loolapaloza",
+        precio: 4000,
+        lugar: "Tecnopolis",
+        img: 'https://via.placeholder.com/200',
+        category: "Eventos"
+    },
     ]
