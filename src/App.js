@@ -6,26 +6,28 @@ import {ItemCount} from './components/ItemCount/ItemCount'
 import { ItemListConteiner } from './components/ItemListConteiner/ItemListConteiner';
 import {ItemDetailConteiner} from './components/ItemDetailConteiner/ItemDetailConteiner'
 import { HpApi } from './components/HpApi/HpApi';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+
 
 function App() {
   return (
-    <div className="App">
-     <NavBar />
-     {/*} 
-      <br></br>
-      <h2>Proyecto React Venta de entradas</h2>
-      <Clicker/>
-      <ItemCount/>*/}
-      <ItemListConteiner/>
-      <hr/>
-      <h2>ITEM DETAIL</h2>
-      <hr/>
-      <ItemDetailConteiner/>
-      <hr/>
-      <h2>API GET Y CUSTOM HOOK</h2>
-      <hr/>
-      <HpApi/>
-    </div>
+
+      <BrowserRouter>
+        
+        <NavBar />
+        <Routes>
+
+            <Route path="/" element={<ItemListConteiner/>} />
+            <Route path="/detail" element={<ItemDetailConteiner/>}/>
+            <Route path="/Api" element={<HpApi/>}/>
+
+            {/*Sin terminar*/}
+            <Route path="/category/:categoryId" element={<ItemListConteiner/>}/>
+            <Route path="/cart" element={<ItemDetailConteiner/>}/>
+
+        </Routes> 
+      </BrowserRouter>
+
   );
 }
 

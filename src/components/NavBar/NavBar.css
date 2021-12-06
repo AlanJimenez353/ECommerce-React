@@ -3,8 +3,26 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: 5px 20px;
+    border-bottom: 3px solid rgb(0,221,221);
     background-color: black;
     color: white;
 }
+ul{
+    list-style-type: none;
+    text-decoration:  none;
 
+}
+li{
+    display: inline;
+padding: 20px;
+padding-top: 5px;
+}
+.dede{
+    color: white;
+    text-decoration: none;
+
+}
+.dede:hover{
+    text-decoration: underline;
+}

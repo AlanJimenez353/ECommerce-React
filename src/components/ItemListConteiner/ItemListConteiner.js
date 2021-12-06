@@ -1,4 +1,5 @@
 import React,{ useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { Fechas } from "../Data/Fechas"
 import { FechasList } from "../FechasList/FechasList";
 import { pedirDatos } from "../utils/pedirDatos";
@@ -10,6 +11,11 @@ export const ItemListConteiner = () =>{
     ///COMIENZO CON LAS FECHAS VACIAS
 const [fechas,setFechas]= useState([])
 const[loading,setLoading]=useState(false)
+
+//Capturar parametros para retornar categoria mediante Router
+
+const {categoryId} =useParams()
+
 
 //REALIZO RENDERIZACION Y CUANDO ACTUALIZA YA TENGO MIS FECHAS CARGADAS
 useEffect(()=>{
