@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export const ItemFecha=({fecha}) =>{
@@ -10,7 +11,7 @@ export const ItemFecha=({fecha}) =>{
                     <p>Lugar: {fecha.lugar}</p>
                     <p>Precio: ${fecha.precio} </p>
                     <p>Categoria:  {fecha.category}</p>
-                    <button className="btn btn-dark">Ver mas</button>
+                    <Link to = {`/detail/${fecha.id}`} className="btn btn-dark">Ver mas</Link>
         </div>
     )
 }

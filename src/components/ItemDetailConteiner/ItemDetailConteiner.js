@@ -11,9 +11,10 @@ export const ItemDetailConteiner = () =>{
     ///COMIENZO CON LAS FECHAS VACIAS
 const [fecha,setFecha]= useState([])
 const[loading,setLoading]=useState(true)
+    // Recibo id desde parametro para filtar el item a detallar
 const{itemId}=useParams()
 
-//REALIZO RENDERIZACION Y CUANDO ACTUALIZA YA TENGO MIS FECHAS CARGADAS
+    //REALIZO RENDERIZACION Y CUANDO ACTUALIZA YA TENGO MIS FECHAS CARGADAS
 useEffect(()=>{
 
     setLoading(true)
