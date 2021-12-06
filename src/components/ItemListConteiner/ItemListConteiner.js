@@ -17,34 +17,38 @@ const[loading,setLoading]=useState(false)
 const {categoryId} =useParams()
 
 
-//REALIZO RENDERIZACION Y CUANDO ACTUALIZA YA TENGO MIS FECHAS CARGADAS
-useEffect(()=>{
-
-    setLoading(true)
-    pedirDatos()
-        .then((resp)=>{
-            setFechas(resp)
-            console.log(resp)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-        .finally(()=>{
-            console.log("Peticion finalizada")
-            setLoading(false)
-        })
-},[])
+    useEffect(()=>{
+            setLoading(true)
+            pedirDatos()
+                .then((resp)=>{
+                    if(categoryId){
+                        setFechas(resp.filter((element)=> element.category === categoryId))
+                    }
+                    else{
+                        setFechas(resp)
+                    }
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+                .finally(()=>{
+                    console.log("Peticion finalizada")
+                    setLoading(false)
+                })
+    },[categoryId])
 
 // UNA VEZ CON LAS FECHAS CARGADAS LLAMO A  FUNCION QUE CREA TABLA DE FECHAS
 // Utilizo el set loading para que los componentes del ItemList no se renderizen antes de estar cargados
     return(
-        <div> 
+         
+            <>
             {
                 loading
                 ? <h2>Cargando...</h2>
-                : <FechasList Fechas= {Fechas}/>
+                : <FechasList Fechas= {fechas}/>
             }
-        </div>
+            </>
+        
     )
 
 }

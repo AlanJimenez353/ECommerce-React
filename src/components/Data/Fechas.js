@@ -29,7 +29,7 @@ export const Fechas =[
         precio: 4000,
         lugar: "Monumental",
         img: 'https://via.placeholder.com/200',
-        category:"Rock"
+        category: "Rock"
     },
     {
         id: 5,
@@ -37,6 +37,6 @@ export const Fechas =[
         precio: 2500,
         lugar: "Teatro Colon",
         img: 'https://via.placeholder.com/200',
-        category:"Rock"
+        category: "Rock"
     }
     ]

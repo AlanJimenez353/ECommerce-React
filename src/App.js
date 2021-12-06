@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import {NavBar} from './components/NavBar/NavBar'
-import {Clicker} from './components/Clicker/Clicker'
-import {ItemCount} from './components/ItemCount/ItemCount'
+//import {Clicker} from './components/Clicker/Clicker'
+//import {ItemCount} from './components/ItemCount/ItemCount'
 import { ItemListConteiner } from './components/ItemListConteiner/ItemListConteiner';
 import {ItemDetailConteiner} from './components/ItemDetailConteiner/ItemDetailConteiner'
 import { HpApi } from './components/HpApi/HpApi';

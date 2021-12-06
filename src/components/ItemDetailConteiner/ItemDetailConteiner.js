@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import { Fechas } from "../Data/Fechas"
-import { FechasList } from "../FechasList/FechasList";
+///import { FechasList } from "../FechasList/FechasList";
 import { pedirDatos } from "../utils/pedirDatos";
 import {ItemDetailFecha} from '../ItemDetailFecha/ItemDetailFecha'
 

@@ -9,7 +9,7 @@ export const ItemFecha=({fecha}) =>{
                     <h3>{fecha.artista}</h3>
                     <p>Lugar: {fecha.lugar}</p>
                     <p>Precio: ${fecha.precio} </p>
-                    <p>Categoria:{fecha.category}</p>
+                    <p>Categoria:  {fecha.category}</p>
                     <button className="btn btn-dark">Ver mas</button>
         </div>
     )
