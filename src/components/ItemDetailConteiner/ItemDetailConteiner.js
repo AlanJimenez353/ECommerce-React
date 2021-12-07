@@ -1,30 +1,31 @@
-import React,{ useEffect, useState } from "react";
-import { Fechas } from "../Data/Fechas"
-import { FechasList } from "../FechasList/FechasList";
-import { pedirDatos } from "../utils/pedirDatos";
+import React,{ useEffect, useState } from 'react';
 import {ItemDetailFecha} from '../ItemDetailFecha/ItemDetailFecha'
-import { pedirItem } from "../utils/pedirItem";
-import { useParams } from "react-router";
+import { useParams } from 'react-router'
+import { pedirItem} from'../utils/pedirItem'
 
 export const ItemDetailConteiner = () =>{
 
     ///COMIENZO CON LAS FECHAS VACIAS
-const [fecha,setFecha]= useState([])
-const[loading,setLoading]=useState(true)
+
+    const [fecha,setFecha]= useState([])
+    const[loading,setLoading]=useState(true)
+    
     // Recibo id desde parametro para filtar el item a detallar
-const{itemId}=useParams()
+    const{itemId}= useParams()
+
 
     //REALIZO RENDERIZACION Y CUANDO ACTUALIZA YA TENGO MIS FECHAS CARGADAS
-useEffect(()=>{
+    useEffect(()=>{
 
-    setLoading(true)
-    pedirItem(Number(itemId))
-        .then(resp =>setFecha(resp))
-        .finally(()=>{
-                setLoading(false)
-            })
-        
-},[])
+        setLoading(true)
+
+        pedirItem( Number(itemId) )
+            .then(resp => setFecha(resp))
+            .finally(()=>{
+                    setLoading(false)
+                })
+            
+    },[itemId])
 
 // UNA VEZ CON LAS FECHAS CARGADAS LLAMO A  FUNCION QUE CREA TABLA DE FECHAS
 // Utilizo el set loading para que los componentes del ItemList no se renderizen antes de estar cargados
@@ -33,7 +34,7 @@ useEffect(()=>{
             {
                 loading
                 ? <h2>Cargando...</h2>
-                : <ItemDetailFecha Fechas= {fecha}/>
+                : <ItemDetailFecha fecha= {fecha}/>
             }
         </div>
     )
