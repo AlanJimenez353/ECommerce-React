@@ -6,27 +6,35 @@ import { ItemListConteiner } from './components/ItemListConteiner/ItemListContei
 import {ItemDetailConteiner} from './components/ItemDetailConteiner/ItemDetailConteiner'
 import { HpApi } from './components/HpApi/HpApi';
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
+import { cartContext, CartProvider } from './components/context/cartContext';
+import { useState } from 'react';
 
 
 function App() {
+  
+
+  
+  
+
   return (
 
-      <BrowserRouter>
-        
+    <CartProvider >
+ 
+      <BrowserRouter>  
         <NavBar />
-        <Routes>
+          <Routes>
 
-            <Route path="/" element={<ItemListConteiner/>} />
-            <Route path="/detail/:itemId" element={<ItemDetailConteiner/>}/>
-            <Route path="/Api" element={<HpApi/>}/>
+              <Route path="/" element={<ItemListConteiner/>} />
+              <Route path="/detail/:itemId" element={<ItemDetailConteiner/>}/>
+              <Route path="/Api" element={<HpApi/>}/>
 
-            {/*Sin terminar*/}
-            <Route path="/category/:categoryId" element={<ItemListConteiner/>}/>
-            <Route path="/cart" element={<ItemDetailConteiner/>}/>
-            <Route path="*" element={<Navigate to="/"/>}/>
-        </Routes> 
+              {/*Sin terminar*/}
+              <Route path="/category/:categoryId" element={<ItemListConteiner/>}/>
+              <Route path="/cart" element={<ItemDetailConteiner/>}/>
+              <Route path="*" element={<Navigate to="/"/>}/>
+          </Routes> 
       </BrowserRouter>
-
+      </CartProvider>
   );
 }
 

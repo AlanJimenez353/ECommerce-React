@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from 'react';
+import React,{ useContext, useEffect, useState } from 'react';
 import {ItemDetailFecha} from '../ItemDetailFecha/ItemDetailFecha'
 import { useParams } from 'react-router'
 import { pedirItem} from'../utils/pedirItem'
@@ -6,7 +6,6 @@ import { pedirItem} from'../utils/pedirItem'
 export const ItemDetailConteiner = () =>{
 
     ///COMIENZO CON LAS FECHAS VACIAS
-
     const [fecha,setFecha]= useState([])
     const[loading,setLoading]=useState(true)
     

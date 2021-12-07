@@ -40,7 +40,7 @@ export const Fechas =[
         category: "Rock"
     },
     {
-        id: 5,
+        id: 6,
         artista: "Loolapaloza",
         precio: 4000,
         lugar: "Tecnopolis",

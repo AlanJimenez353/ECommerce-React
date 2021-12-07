@@ -1,4 +1,4 @@
-import { CarWidget } from '../CartWidget/CartWidget'
+import { CartWidget } from '../CartWidget/CartWidget'
 import './NavBar.css'
 import {Link} from 'react-router-dom'
 
@@ -17,7 +17,7 @@ export const NavBar = () =>{
              </ul>
          </nav>
 
-            <CarWidget/>
+            <CartWidget/>
         </header>
     )
 

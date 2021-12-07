@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from "react";
+import React,{ useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { FechasList } from "../FechasList/FechasList";
 import { pedirDatos } from "../utils/pedirDatos";
@@ -7,13 +7,14 @@ import { pedirDatos } from "../utils/pedirDatos";
 
 export const ItemListConteiner = () =>{
 
-    ///COMIENZO CON LAS FECHAS VACIAS
+
+///COMIENZO CON LAS FECHAS VACIAS
 const [fechas,setFechas]= useState([])
 const[loading,setLoading]=useState(false)
 
 //Capturar parametros para retornar categoria mediante Router
-
 const {categoryId} =useParams()
+
 
 
     useEffect(()=>{
@@ -35,6 +36,8 @@ const {categoryId} =useParams()
                     setLoading(false)
                 })
     },[categoryId])
+
+
 
 // UNA VEZ CON LAS FECHAS CARGADAS LLAMO A  FUNCION QUE CREA TABLA DE FECHAS
 // Utilizo el set loading para que los componentes del ItemList no se renderizen antes de estar cargados
