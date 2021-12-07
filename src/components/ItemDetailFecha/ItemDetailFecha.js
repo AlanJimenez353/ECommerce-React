@@ -53,7 +53,11 @@ export const ItemDetailFecha =({fecha}) => {
                       {/* Antes de renderizar verifico si ya eciste un componente con el mismo id en el carrito para no agregar elementos repetidos*/}
                       {
                         !isInCart(fecha.id)
-                          ?  <ItemCount increment={increment} decrement={decrement} onAdd={handleAdd} counter={counter}/>
+                          ?  <ItemCount 
+                                increment={increment} 
+                                decrement={decrement}
+                                onAdd={handleAdd}
+                                counter={counter}/>
                           :  <Link to="/cart" className="btn btn-dark">Terminar mi compra</Link>
 
                         }
