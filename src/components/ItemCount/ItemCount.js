@@ -9,7 +9,9 @@ import "./ItemCount.css"
         return(
             <div>
                 <div className="diver">
-                    <button className="btn btn-dark" onClick={decrement}> - </button>
+                   
+                    {/* Le agrego un condicional al classname de modo que si cumple o no cambia el estilo del boton */}
+                    <button className={counter=== 0 ? "btn btn-danger" : "btn btn-dark" } onClick={decrement}> - </button>
                     <span className="mx-2">{counter}</span>
                     <button className="btn btn-dark" onClick={increment}> + </button>
                 </div>
@@ -22,6 +24,3 @@ import "./ItemCount.css"
     }
 
 
-/*
-//Con useCounter Hook
-*/
