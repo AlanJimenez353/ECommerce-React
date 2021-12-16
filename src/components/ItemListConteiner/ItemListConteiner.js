@@ -1,9 +1,8 @@
-import React,{ useContext, useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { db } from "../../firebase/config";
 import { FechasList } from "../FechasList/FechasList";
-import { pedirDatos } from "../utils/pedirDatos";
-
-
+import {collection,getDocs,query,where} from "firebase/firestore/lite"
 
 export const ItemListConteiner = () =>{
 
@@ -16,25 +15,29 @@ const[loading,setLoading]=useState(false)
 const {categoryId} =useParams()
 
 
-
     useEffect(()=>{
             setLoading(true)
-            pedirDatos()
-                .then((resp)=>{
-                    if(categoryId){
-                        setFechas(resp.filter((element)=> element.category === categoryId))
-                    }
-                    else{
-                        setFechas(resp)
-                    }
+            //referencia a coleccion de mi database en firebase
+            const fechasRef= collection(db,'fechas')
+            //Verifico si existe category id, si existe se filtran los elementos de la 
+            // base de datos que tengan el category id que recibimos por query, sino devolvemos la coleccion completa
+            const q= categoryId ? query(fechasRef, where('category','==',categoryId)) : fechasRef
+            getDocs(q)
+            .then(resp =>{
+                //Lo mapeamos para armar un array con cada objeto que esta almacenado en la base de datos
+                const fechas=resp.docs.map((doc) =>{
+                    return {
+                        id:doc.id,
+                        ...doc.data()
+                }
                 })
-                .catch((err)=>{
-                    console.log(err)
-                })
-                .finally(()=>{
-                    console.log("Peticion finalizada")
-                    setLoading(false)
-                })
+                console.log(fechas)
+                setFechas(fechas)
+            })
+            .finally(()=> {
+                setLoading(false)
+
+            })
     },[categoryId])
 
 
