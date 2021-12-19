@@ -9,12 +9,13 @@ import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
 import { cartContext, CartProvider } from './components/context/cartContext';
 import { useState } from 'react';
 import { CartView } from './components/cartView/CartView';
+import { FinalizarCompra } from './components/FinalizarCompra/FinalizarCompra';
 
 
 function App() {
   
 
-  
+
   
 
   return (
@@ -31,6 +32,7 @@ function App() {
                 {/*Sin terminar*/}
                 <Route path="/category/:categoryId" element={<ItemListConteiner/>}/>
                 <Route path="/cart" element={<CartView/>}/>
+                <Route path="/FinalizarCompra" element={<FinalizarCompra/>}/>
                 <Route path="*" element={<Navigate to="/"/>}/>
             </Routes> 
         </BrowserRouter>
