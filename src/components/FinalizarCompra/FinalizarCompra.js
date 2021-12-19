@@ -3,7 +3,7 @@ import { cartContext } from "../context/cartContext";
 import { Timestamp } from "firebase/firestore/lite"
 import { Link } from "react-router-dom";
 import { db } from "../../firebase/config";
-import {collection,addDoc} from "firebase/firestore/lite"
+import {collection,addDoc,doc,getDoc,updateDoc} from "firebase/firestore/lite"
 
 
 export const FinalizarCompra= ()=>{
@@ -27,9 +27,21 @@ export const FinalizarCompra= ()=>{
         }
 
         const ordersRef=collection(db,'compras')
-            // Agregar compra a mi colleccion en Firebase
+        const fechasRef= collection(db,'fechas')
+
+        // Agregar compra a mi colleccion en Firebase
             addDoc(ordersRef,order)
             .then((res)=>{
+
+                cart.forEach((prod) => {
+                    const docRef= doc(fechasRef,prod.id)
+                    getDoc(docRef)
+                    .then((doc)=>{
+                        updateDoc(doc.ref,{
+                            stock:doc.data().stock - prod.cantidad
+                        })
+                    })
+                })
                 setOrderId(res.id)
                 vaciarCarrito()
             })
