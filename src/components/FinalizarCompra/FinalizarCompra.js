@@ -3,7 +3,7 @@ import { cartContext } from "../context/cartContext";
 import { Timestamp } from "firebase/firestore/lite"
 import { Link } from "react-router-dom";
 import { db } from "../../firebase/config";
-import {collection,addDoc,doc,getDoc,updateDoc} from "firebase/firestore/lite"
+import {collection,addDoc,doc,getDoc,getDocs,updateDoc,writeBatch,query,where,documentId} from "firebase/firestore/lite"
 
 
 export const FinalizarCompra= ()=>{
@@ -25,26 +25,41 @@ export const FinalizarCompra= ()=>{
             //Utilizamos el metodo TImestamp para poder almacernarlo en Firease
             date: Timestamp.fromDate(new Date())
         }
+        const batch= writeBatch(db)
 
         const ordersRef=collection(db,'compras')
         const fechasRef= collection(db,'fechas')
+        const q = query(fechasRef,where(documentId(),'in',cart.map(el=>el.id)))
+        const outOfStock=[]
 
-        // Agregar compra a mi colleccion en Firebase
-            addDoc(ordersRef,order)
-            .then((res)=>{
-
-                cart.forEach((prod) => {
-                    const docRef= doc(fechasRef,prod.id)
-                    getDoc(docRef)
-                    .then((doc)=>{
-                        updateDoc(doc.ref,{
-                            stock:doc.data().stock - prod.cantidad
-                        })
+        //Manejo de stock en Firebase
+        getDocs(q)
+        .then((res)=>{
+            res.docs.forEach((doc)=>{
+                const itemToUpdate=cart.find((prod)=> prod.id === doc.id)
+                if(doc.data().stock >= itemToUpdate.cantidad){
+                    batch.update(doc.ref,{
+                        stock:doc.data().stock-itemToUpdate.cantidad
                     })
-                })
-                setOrderId(res.id)
-                vaciarCarrito()
+                }else{
+                    outOfStock.push(itemToUpdate)
+                }
             })
+            //Si llega a este if significa que se agrego todo exitosamente y hacemos el commit a firebase
+            if(outOfStock.length === 0){
+                batch.commit()
+                
+                // Agregar compra a mi colleccion en Firebase 
+                addDoc(ordersRef,order)
+                .then((res)=>{   
+                    setOrderId(res.id)
+                    vaciarCarrito()
+                }) 
+            }else{
+                alert("No queda Stock de la fecha")
+            }
+        })
+        
     } 
 
     //Controladores Formulario
@@ -55,7 +70,6 @@ export const FinalizarCompra= ()=>{
         }
         else{
             alert("Campos no validos")
-
         }
     }
     const handleinputChanger = (e) =>{
