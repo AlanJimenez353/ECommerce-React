@@ -9,7 +9,7 @@ export const FechasList =({Fechas}) =>{
     return(
         <div className="conteiner">
             <div className="titt">
-            <h2 >A donde iras hoy</h2>
+            <h2>A donde iras hoy</h2>
             </div>
             <hr/>
             <div className="container">           
