@@ -13,7 +13,8 @@ import { FinalizarCompra } from './components/FinalizarCompra/FinalizarCompra';
 
 
 function App() {
-  
+  document.body.style = 'background: black;';
+
 
 
   

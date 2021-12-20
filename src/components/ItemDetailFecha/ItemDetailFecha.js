@@ -37,19 +37,19 @@ export const ItemDetailFecha =({fecha}) => {
 
     
     return(
+      <div className="detail">
                       <div className="navber">
+                        <div className="texting">
                         <img src={fecha.img} alt={fecha.artista}/>
-                        <h3>{fecha.artista}</h3>
+                        <h3 className="artist">{fecha.artista}</h3>
                       
-                      <div className="divers2">                  
+                      <h5>
                         <p>Lugar: {fecha.lugar}</p>
-                      
-                      </div>
-                      
-                      <div className="divers">
+                       </h5>                     
+                      <h5>
                         <p>Precio: ${fecha.precio} </p>
                       
-                      </div>
+                      </h5>
                       {/* Antes de renderizar verifico si ya eciste un componente con el mismo id en el carrito para no agregar elementos repetidos*/}
                       {
                         !isInCart(fecha.id)
@@ -61,12 +61,16 @@ export const ItemDetailFecha =({fecha}) => {
                           :  <Link to="/cart" className="btn btn-dark">Terminar mi compra</Link>
 
                         }
-                      
-                      <hr></hr>
+                        </div>
+                 </div>
+                  <hr></hr>
                       <div className="but">
-                        <button className="btn btn-dark" onClick={handleVolver}>Volver</button>
+                        <button className="btn btn-danger     margin-left: auto;    margin-right: auto;
+" onClick={handleVolver}>Seguir comprando</button>
                       </div>
-           </div>
+
+          
+   </div>
     )
 
 }

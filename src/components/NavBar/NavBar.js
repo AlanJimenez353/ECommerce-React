@@ -8,12 +8,11 @@ export const NavBar = () =>{
         <header className="navbar">
          <Link to= "/"><h1>Lights Out</h1></Link>
          <nav>
-             <ul>
-                 <li> <Link to ="/category/Rock">             Rock      </Link></li>
-                 <li> <Link to ="/category/Electronica">  Electronica   </Link></li>
-                 <li> <Link to ="/category/Eventos">        Eventos     </Link></li>                 
-                 <li> <Link to ="/detail">                   Detail       </Link></li>
-                 <li> <Link to ="/Api">                       API       </Link></li>
+             <ul style={{ paddingTop:20,paddingLeft:600 }}>
+                 <li> <Link to ="/category/Rock"        style={{ textDecoration: 'none',color:'white' }}>              Rock       </Link></li>
+                 <li> <Link to ="/category/Electronica" style={{ textDecoration: 'none',color:'white' }}>           Electronica   </Link></li>
+                 <li> <Link to ="/category/Eventos"     style={{ textDecoration: 'none',color:'white' }}>             Eventos     </Link></li>                 
+                 <li> <Link to ="/Api"                  style={{ textDecoration: 'none',color:'white' }}>               API       </Link></li>
              </ul>
          </nav>
 

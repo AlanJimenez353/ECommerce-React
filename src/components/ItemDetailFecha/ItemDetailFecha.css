@@ -1,16 +1,52 @@
 .navber{
     justify-content:space-between;
-    margin: 25px;
-    margin-left: 600px;
+    width: 300px;
+    border-radius: 5;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    align-content: center;
     align-self: center;
-}
+    border-radius: 4;
+    border-width: 4px;
+    background-color: black;
+    border-color:rgb(0, 0, 138);
+    border-style: solid;
+    padding: 30px;
 
+
+}
+.texting{
+    width: 205px;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    background-color: black;
+    text-align: center;
+
+}
+.p{color: white;}
+.detail{
+    margin: 5% 0;
+    align-items: center;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+h3{
+    
+    margin-left: auto;
+    margin-right: auto;
+}
 .but{
-    padding-left: 70px;
+    padding-left: 44.5%;
+
 }
 .divers{
-    padding-left: 55px;
-}
+
+    margin-left: auto;
+    margin-right: auto;}
 .divers2{
-    padding-left: 33px;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -1,7 +1,14 @@
 
 .diver{
-    padding-left: 60px;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 .diver2{
-    padding-left: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+span{
+    color: white;
 }
