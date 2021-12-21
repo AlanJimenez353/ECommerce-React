@@ -15,7 +15,7 @@
 ![Screenshot1](imagenes/MainViewReact.png)
 > Home View
 ## --
-![Screenshot2](imagenes/AgregarCarrritoReact.png)
+![Screenshot2](imagenes/AgregarCarritoReact.png)
 > Item Detail View
 ## --
 ![Screenshot3](imagenes/ResumenCompra.png)
